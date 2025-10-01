@@ -1,9 +1,10 @@
+import java.util.List;
 import java.util.Scanner;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.nio.file.*;
 
-// 75 minutes day 1
-// 45 minutes day 2
-// 160 minutes day 3
-// 30 minutes day 4
 
 public class Main {
     public static void main(String[] args) {
@@ -49,8 +50,43 @@ public class Main {
                     chosenDeck.EditDeck(scan);
                     break;
                 case 5:
+                    List<FlashCard> cardsToSave;
+                    try (FileWriter writer = new FileWriter("decks.txt", false))
+                    {
+                        for (int i = 0; i < decks.GetDeckCount(); i++) {
+                            chosenDeck = decks.SelectCardDeck(i + 1);
+                            writer.write(chosenDeck.GetDeckName());
+                            cardsToSave = chosenDeck.GetDeckContents();
+                            for (int cardI = 0; cardI < cardsToSave.size(); cardI++)
+                            {
+                                writer.write("|" + cardsToSave.get(cardI).GetCardFront());
+                                writer.write("|" + cardsToSave.get(cardI).GetCardBack());
+                            }
+                            writer.write("\n");
+                        }
+                    } catch (Exception e) {
+                        System.out.println("There was an error saving your decks: " + e.getMessage());
+                    }
                     break;
                 case 6:
+                    try (BufferedReader reader = new BufferedReader(new FileReader("decks.txt"))) {
+                        String line;
+                        while ((line = reader.readLine()) != null) {
+                            String[] parts = line.split("\\|");
+                            String deckName = parts[0];
+                            FlashCardDeck newDeck = new FlashCardDeck(deckName);
+                            decks.AddDeck(newDeck);
+
+                            for (int i = 1; i < parts.length; i += 2)
+                            {
+                                String cardFront = parts[i];
+                                String cardBack = parts[i + 1];
+                                newDeck.LoadCard(cardFront, cardBack);
+                            }
+                        }
+                    } catch (Exception e) {
+                        System.out.println("There was an error loading your decks: " + e.getMessage());
+                    }
                     break;
                 default:
                     break;

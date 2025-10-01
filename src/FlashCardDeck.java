@@ -8,6 +8,24 @@ public class FlashCardDeck {
     private List<FlashCard> _cardDeck = new ArrayList<>();
     private String _deckName;
 
+    public FlashCardDeck() {
+
+    }
+
+    public FlashCardDeck(String name)
+    {
+        _deckName = name;
+    }
+
+    public String GetDeckName() {
+        return _deckName;
+    }
+
+    public List<FlashCard> GetDeckContents() {
+        return _cardDeck;
+    }
+
+
     public void InitializeDeck(Scanner scan) {
         System.out.print("Please enter the name of this flash card deck: ");
         _deckName = scan.nextLine();
@@ -99,20 +117,23 @@ public class FlashCardDeck {
                     isStudied.set(randomInt, true);
                     iterated = true;
 
+                    boolean isFlipped = false;
                     int cardOrientationController = 0;
-                    while (cardOrientationController != 2) {
-                        if (cardOrientationController == 0) {
+                    while (cardOrientationController != 1) {
+                        if (cardOrientationController == 0 && !isFlipped) {
                             System.out.println("\nHere is the front of your card: ");
                             _cardDeck.get(randomInt).DisplayCardFront();
-                            System.out.println("\nEnter '1' to view the backside or '2' to move to the next card: ");
+                            System.out.println("\nEnter '0' to view the backside or '1' to move to the next card: ");
                             cardOrientationController = scan.nextInt();
                             scan.nextLine();
-                        } else if (cardOrientationController == 1) {
+                            isFlipped = true;
+                        } else if (cardOrientationController == 0) {
                             System.out.println("\nHere is the back of your card: ");
                             _cardDeck.get(randomInt).DisplayCardBack();
-                            System.out.println("\nEnter '0' to view the frontside or '2' to move to the next card: ");
+                            System.out.println("\nEnter '0' to view the frontside or '1' to move to the next card: ");
                             cardOrientationController = scan.nextInt();
                             scan.nextLine();
+                            isFlipped = false;
                         }
                     }
                 }
@@ -124,12 +145,18 @@ public class FlashCardDeck {
     }
 
     private FlashCard SelectCard(Scanner scan) {
-        System.out.println("Here are the cards that you can edit: ");
-        DisplayDeck();
-        System.out.println("Select the card you would like to edit: ");
-        int chosenCard = scan.nextInt();
-        scan.nextLine();
-        return _cardDeck.get(chosenCard - 1);
+        try {
+            System.out.println("Here are the cards that you can edit: ");
+            DisplayDeck();
+            System.out.println("Select the card you would like to edit: ");
+            int chosenCard = scan.nextInt();
+            scan.nextLine();
+            return _cardDeck.get(chosenCard - 1);
+        } catch (Exception e)
+        {
+            System.out.println("Couldn't select your card: " + e.getMessage());
+            return null;
+        }
     }
 
     public void EditDeck(Scanner scan) {
@@ -205,4 +232,11 @@ public class FlashCardDeck {
                 break;
         }
     }
+
+    public void LoadCard(String front, String back)
+    {
+        FlashCard newCard = new FlashCard(front, back);
+        _cardDeck.add(newCard);
+    }
+
 }

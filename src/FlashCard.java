@@ -20,6 +20,10 @@ public class FlashCard {
         _cardBack = back;
     }
 
+    public String GetCardFront() { return _cardFront; }
+
+    public String GetCardBack() { return _cardBack; }
+
     public void SetFrontAndBack(String front, String back) {
         _cardFront = front;
         _cardBack = back;

@@ -8,6 +8,10 @@ public class DeckHolder {
 
     }
 
+    public int GetDeckCount() {
+        return _deckHolder.size();
+    }
+
     public void DisplayDeckNames() {
         for (int i = 0; i < _deckHolder.size(); i++) {
             System.out.print((i + 1) + ". ");
