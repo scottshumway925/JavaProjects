@@ -8,6 +8,4 @@ public class DeckUtils {
         scan.nextLine();
         return decks.SelectCardDeck(deckChoice);
     }
-
-
 }

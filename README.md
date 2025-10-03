@@ -39,8 +39,8 @@ The expected minimum amount of time each Sprint for each category is as follows:
 | 9/29/25 | 10:07 PM   |   Personal    | Today I figured out how to save to files in Java.                                                                                            |      75       |
 | 9/30/25 | 10:03 PM   |   Personal    | I figured out how to read from files today. I also got my environment setup to create a graphical interface (although nothing is there yet). |      60       |
 | 10/1/24 | 2:00 PM    | Class Meeting | We did our team project stand ups today.                                                                                                     |      60       |
-| 10/1/24 | 3:10 PM    |   Personal    | Today I spent a lot of time trying to figure out how to incorporate graphics into the program, and am really struggling with it.             |      80       |
-|         |            |               |                                                                                                                                              |               |
+| 10/1/24 | 3:10 PM    |   Personal    | Today I spent a lot of time trying to figure out how to incorporate graphics into the program, and am really struggling with it.             |      90       |
+| 10/3/24 | 2:00 PM    | Class Meeting | We displayed our personal projects in class today.                                                                                           |      60       |
 |         |            |               |                                                                                                                                              |               |
 |         |            |               |                                                                                                                                              |               |
 
@@ -50,7 +50,7 @@ _Note: Add more rows as needed._
 
 |Categroy                       | Total Time (Hours:Minutes) |
 |-------------------------------|:--------------------------:|
-|IM - Individual Module         |            8:45            |
+|IM - Individual Module         |            8:55            |
 |TP - Team Project              |            3:00            |
 |MTG - Class Meetings           |            4:00            |
-|**TOTAL**                      |           15:45            |
+|**TOTAL**                      |           15:55            |
