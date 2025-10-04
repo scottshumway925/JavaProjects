@@ -2,3 +2,4 @@
 Pizza|Sauce|Red is gud|Toppings|Pepperonis and cheze and sin
 Adrienne|Favorite Show|Adrienne loves romance shows and crime shows.|Favorite Movie|Adrienne loves the LOTR trilogy|Favorite Activity|Adrienne loves watching shows
 Bread|White|Bleached wheat|Not white|Non bleached wheat
+Clothes|Womens|Dresses, tights, skinny jeans|Mens|Dirty stuff, baggy things
